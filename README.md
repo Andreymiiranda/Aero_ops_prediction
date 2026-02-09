@@ -95,6 +95,11 @@ O dashboard responde a perguntas críticas do negócio:
 ## 3️⃣ Execução
 -python main.py
 
+## 🚀 Próximos Passos
+
+- **Machine Learning:** Implementação de modelos de regressão (XGBoost / Random Forest) para identificar padrões de órbita e refinar o ETA de forma preditiva.
+- **Dados Premium:** Transição para APIs de baixa latência para garantir maior confiabilidade, disponibilidade contínua e escalabilidade industrial.
+
 ## 👥 Agradecimentos
 - **Equipe:** João Victor Ravazzi Ferretti, Andrey Alves Miranda, Carrie Jenniffer Alves Mota, Juliana Malheiros, Leandro Falasca.
 - **Instrutores:** Luiz Chiavini e Samuel Reginatto
