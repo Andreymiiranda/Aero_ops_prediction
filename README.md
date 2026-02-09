@@ -75,7 +75,7 @@ O dashboard responde a perguntas críticas do negócio:
 - ⚠️ **Matriz de Risco** – Pontualidade e condições de pista
 
 ### 👉 Acessar o Dashboard
-[![Dashboard Power BI](docs/dashboard.png)](https://SEU_LINK_AQUI)
+[![Dashboard Power BI](docs/dashboard.png)](https://app.powerbi.com/groups/me/reports/771ca17f-8fd1-4e13-89e8-bece52988cbd/b8e7f17026d63159a1a8?ctid=bd697c1b-c481-479c-841e-c618542675c3&experience=power-bi)
 
 ---
 
