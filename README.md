@@ -1,95 +1,101 @@
-# 📦 Projeto SkyCargo – Aero Ops Predictor
+# ✈️ Aero Ops Predictor (Logistics Intelligence)
 
-## 🏢 Contexto do Projeto
+Este projeto foi desenvolvido como **trabalho de conclusão** no **Bootcamp da Generation Brasil**, com o apoio e patrocínio do **Grupo Cyrela** e **CashMe**.
 
-A **SkyCargo** atua no transporte de **órgãos para transplante** e **peças urgentes de maquinário**.  
-Atualmente, a operação depende de painéis externos para confirmar a chegada dos voos, que são **atualizados manualmente** e muitas vezes indicam **“No horário”**, mesmo quando a aeronave enfrenta **tempestades a quilômetros do destino**.
-
----
-
-## ❗ O Problema
-
-Ambulâncias e caminhões aguardam na pista **sem informações reais e confiáveis**, desperdiçando **tempo crítico** em operações onde **cada minuto é vital** para:
-- o sucesso de um transplante
-- a continuidade de uma operação logística nacional
+O objetivo foi resolver um **desafio real de logística crítica** para a **SkyCargo Logistics**, empresa especializada no transporte de **órgãos para transplante** e **peças urgentes de maquinário**, onde **cada minuto é vital**.
 
 ---
 
-## 🎯 O Desafio
+## 📋 Problema de Negócio
 
-Criar uma **“Torre de Controle Própria”**:  
-um sistema capaz de calcular o **ETA (Estimated Time of Arrival) real**, cruzando:
+A SkyCargo dependia de **painéis externos de aeroportos**, atualizados manualmente, que frequentemente exibiam o status *“No horário”* mesmo quando aeronaves enfrentavam **tempestades a quilômetros do destino**.
 
-- a **posição física da aeronave**
-- as **condições climáticas exatas do aeroporto de destino**
-
----
-
-## 🧠 A Solução
-
-Foi desenvolvido um sistema de **inteligência operacional aérea**, capaz de:
-- Monitorar aeronaves em tempo real
-- Identificar voos em aproximação real
-- Ajustar automaticamente o ETA com base em clima e perfil de voo
-- Gerar alertas operacionais e de emergência
-- Persistir dados para análise histórica e tomada de decisão
+### ❗ Impacto
+- Ambulâncias e caminhões aguardavam na pista sem informações confiáveis  
+- Perda de tempo crítico em operações médicas e industriais  
+- Falta de previsibilidade logística  
 
 ---
 
-## 🔹 Python – Motor de Dados e Inteligência
+## 🎯 A Solução
 
-O Python foi utilizado como **núcleo do sistema**, responsável por:
+Desenvolvemos uma **“Torre de Controle Própria”**, capaz de calcular o **ETA Real (Estimated Time of Arrival)** ao cruzar:
 
-- Consumo de APIs de tráfego aéreo (**ADS-B**) e meteorologia (**OpenMeteo**)
-- **Cálculo Geodésico** utilizando a biblioteca `geopy`, considerando a curvatura da Terra para garantir **precisão matemática** na distância real até o destino
-- Aplicação de **regras de negócio**, incluindo:
-  - Ajuste automático de ETA com base em **Vento de Proa**
-  - Penalização por **Pista Molhada**
-  - Geração de **alertas de emergência** para quedas bruscas de altitude longe do aeroporto
+- **Telemetria real da aeronave (ADS-B)**
+- **Condições meteorológicas exatas do aeroporto de destino**
+- **Regras de negócio logísticas e operacionais**
 
 ---
 
-## 🔹 SQL – Persistência e Histórico
+## 🛠️ Tecnologias Utilizadas
 
-Os dados processados são persistidos em um banco **MySQL**, garantindo:
+### 🔹 Python
+- Motor de coleta e processamento de dados
+- Consumo de APIs:
+  - **ADS-B** (telemetria aérea)
+  - **OpenMeteo** (meteorologia)
+- Cálculo geodésico preciso com **geopy**
+- Implementação de regras de negócio e alertas
 
-- Integridade da telemetria dos voos
-- Histórico completo para auditoria
-- Base confiável para análises operacionais
+### 🔹 SQL (MySQL)
+- Modelagem de dados
+- Persistência da telemetria de voos
+- Histórico para auditoria e análises
+- Base de dados consumida pelo Power BI
 
-Essa base de dados é utilizada como **fonte oficial** para consumo no Power BI.
+### 🔹 Power BI
+- Dashboards analíticos focados em decisão
+- Visualização espacial, operacional e de risco
 
----
-
-## 🔹 Power BI – Visibilidade Operacional
-
-O Power BI é utilizado para fornecer **visibilidade estratégica**, com dashboards focados em:
-
-- 🗺️ **Mapa de Rastreio**  
-  Trajetória real percorrida pela aeronave
-
-- 📈 **Análise de Performance**  
-  Monitoramento de velocidade e altitude ao longo do tempo
-
-- ⚠️ **Matriz de Risco**  
-  Visão clara das condições de pouso por aeroporto, considerando clima e status operacional
-
----
-
-## 🚀 Visão de Futuro
-
-Como evolução do projeto, estão previstos:
-
-- Integração com **provedores de dados premium**
-- Aplicação de **Machine Learning** (modelos de regressão)
-- Identificação de padrões de órbita e desvios de rota
-- Transformar o ETA de **reativo** para **preditivo**
-
-O objetivo é tornar o sistema ainda mais inteligente e antecipar riscos antes que impactem a operação.
+### 📦 Bibliotecas Principais
+- `geopy` – Cálculo de distância considerando a curvatura da Terra  
+- `requests` – Integração com APIs externas  
+- `mysql-connector` – Persistência no MySQL  
 
 ---
 
-## 👤 Autor
+## 🧠 Inteligência do Sistema & Regras de Negócio
 
-**Andrey Miranda**  
-Projeto desenvolvido para fins de estudo, portfólio e demonstração de competências em **engenharia de dados, análise operacional e suporte à decisão**.
+- **Cálculo Geodésico**: distância real até o aeroporto considerando a curvatura da Terra  
+- **Fator Clima**:
+  - +10 minutos no ETA se vento > **30 km/h**
+  - +15 minutos no ETA se precipitação > **0.5 mm**
+- **Alerta de Emergência**:
+  - Queda brusca de altitude (> **5000 pés**) longe do aeroporto
+  - Geração de flag de desvio crítico
+
+---
+
+## 📊 Visualização de Dados
+
+O dashboard responde a perguntas críticas do negócio:
+
+- 🗺️ **Mapa de Rastreio** – Trajetória real da aeronave
+- 📈 **Análise de Performance** – Velocidade e altitude ao longo do tempo
+- ⚠️ **Matriz de Risco** – Pontualidade e condições de pista
+
+### 👉 Acessar o Dashboard
+[![Dashboard Power BI](docs/dashboard.png)](https://SEU_LINK_AQUI)
+
+---
+
+## 📂 Como Utilizar este Repositório
+
+### 1️⃣ Banco de Dados
+- Crie as tabelas:
+  - `FACT_VOO_TELEMETRIA`
+  - `FACT_CONDICOES_POUSO`
+
+### 2️⃣ Configuração
+- Insira suas credenciais no dicionário `DB_CONFIG`
+- Arquivos:
+  - `main.py`
+  - `update_db.py`
+
+## 3️⃣ Execução
+-python main.py
+
+## 👥 Agradecimentos
+- **Equipe:** João Victor Ravazzi Ferretti, Andrey Alves Miranda, Carrie Jenniffer Alves Mota, Juliana Malheiros, Leandro Falasca.
+- **Instrutores:** Luiz Chiavini e Samuel Reginatto
+- **Apoiadores:** Generation Brasil,Grupo Cyrela e CashMe
